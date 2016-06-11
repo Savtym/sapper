@@ -1,0 +1,20 @@
+/* Reset Styles */
+
+@import url(reset.css);
+
+/* Custom Styles */
+
+body {
+	background: #e5e5e5;
+}
+
+#game {
+	margin: 10px auto;
+	width: 600px;
+}
+
+#game canvas {
+	margin: 10px auto;
+	display: block;
+	background: #aaa;
+}
