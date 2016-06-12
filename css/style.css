@@ -70,12 +70,19 @@ section {
 }
 
 #game .bomb {
-	background: #000;
+}
+
+#game .flag {
+	background: #FF3D00;
+}
+
+#game .bomb.active {
+	background: #F44336;
 }
 
 #game div[numb].active {
     box-shadow: inset 0 0 2px 1px #888;
-    transition: box-shadow .1s;
+    transition: all .3s;
 }
 
 #game div[numb="1"].active {
