@@ -1,15 +1,50 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta name="viewport" content="width=device-width, minimum-scale=0.1">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<meta itemprop="name" content="Sapper">
+	<meta itemprop="description" content="The game sapper">
+	<meta itemprop="image" content="http://cvesty.pp.ua/experiments/sapper/image/rocket.png">
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="Sapper">
+	<meta name="twitter:title" content="Home page Sapper">
+	<meta name="twitter:description" content="The game sapper">
+	<meta name="twitter:creator" content="Sapper">
+	<meta name="twitter:image:src" content="http://cvesty.pp.ua/experiments/sapper/image/rocket.png">
+	<meta name="twitter:domain" content="Sapper.com">
+	<meta property="og:type" content="profile">
+	<meta property="og:title" content="Sapper">
+	<meta property="og:description" content="The game sapper">
+	<meta property="og:image" content="http://cvesty.pp.ua/experiments/sapper/image/rocket.png">
+	<meta property="og:url" content="http://cvesty.pp.ua/experiments/sapper">
+	<meta property="og:site_name" content="Home page Sapper">
+	<meta property="og:see_also" content="http://cvesty.pp.ua/experiments/sapper">
+	<meta property="fb:admins" content="gocvesty">
+	<meta name="description" content="The game sapper">
+	<link rel="image_src" href="http://cvesty.pp.ua/experiments/sapper/image/rocket.png">
+	<link rel="shortcut icon" href="image/rocket.png">
+	<script src="script/Tocca.min.js"></script>
 	<title>sapper</title>
 </head>
 <body>
+	<div class="twinkling"></div>
+	<div class="sun"></div>
+	<div class="asteroid"></div>
+	<div id="earth">
+		<input id="range" type="range" min="0" max="287" step="1" value="40">
+	</div>
 	<section>
 		<div class="info">
 			<h1>Sapper</h1>
+			<div id="flag"></div>
+			<div id="timer">0s</div>
 		</div>
 		<div id="game"></div>
+		<div class="footer">
+			<a href="http://savtym.pp.ua">by Tymofii Savytskyi</a>
+			<p>2016</p>
+		</div>
 	</section>
 	<script src="script/script.js"></script>
 </body>

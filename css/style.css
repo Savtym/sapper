@@ -8,32 +8,236 @@
 
 body {
     width: 100%;
-    min-width: 450px;
-    height: 100%;
-    min-height: 580px;
+    min-width: 550px;
+    height: 100vh;
+    min-height: 550px;
     top: 0;
     left: 0;
     display: flex;
+    overflow: hidden;
     align-items: center;
     justify-content: center; 
 	font-family: 'Roboto', sans-serif;
-    background: #f5f5f5;
+    background:#000 url(../image/stars.png) repeat top center;
+    z-index:0;   
+}
+
+.sun {
+    position: absolute;
+    right: 2%;
+    top: 10px;
+    width: 200px;
+    height: 200px;
+    display: block;
+    z-index: 10;
+    background: url(../image/sun.svg) no-repeat;
+    background-size: 100%;
+    animation: preloader 120s infinite linear;
+}
+
+@keyframes preloader {
+    to {transform: rotate(360deg);}
+}
+
+.asteroid {
+    position: absolute;
+    left: 60%;
+    top: -200px;
+    width: 100px;
+    height: 100px;
+    display: block;
+    z-index: 10;
+    background: url(../image/asteroid.svg) no-repeat;
+    background-size: 100%;
+    animation: asteroid 20s infinite linear;
+}
+
+@keyframes asteroid {
+    from {transform:translate(0,0);}
+    to {transform:translate(-10000px,8000px);}
+}
+
+#earth {
+    position: absolute;
+    left: 50px;
+    top: 150px;
+    width: 200px;
+    height: 200px;
+    display: block;
+    z-index: 10;
+    background: url(../image/earth.svg) no-repeat;
+    background-size: 100%;
+    animation: earth 60s infinite ease;
+}
+
+@keyframes earth {
+    from {transform:translate(0,0);}
+    25% {transform:translate(25px,25px);}
+    50% {transform:translate(0px,50px);}
+    75% {transform:translate(-25px,25px);}
+    to {transform:translate(0,0);}
+}
+
+#range {
+    display: none;
+    margin-left: 10%;
+    margin-top: 40%;
+    width: 80%;
+    padding: 0;
+    overflow: hidden;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border: 2px solid #fff;
+    background: #fff linear-gradient(#BCBCBC, #fff0f5);
+    -webkit-appearance: none;
+          appearance: none;
+}
+
+#range::-moz-range-thumb {
+    border-radius: 2px;
+    box-shadow: -13px 0 #40310a, -26px 0 #40310a, -39px 0 #40310a, -52px 0 #40310a, -65px 0 #40310a, -78px 0 #40310a, -91px 0 #40310a, -104px 0 #40310a, -117px 0 #40310a, -130px 0 #40310a, -143px 0 #40310a, -156px 0 #40310a;
+}
+
+#range::-moz-range-track {
+    background: none;
+    border: none;
+}
+
+#range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width:15px;
+    height:15px;
+    border: 1px solid #818181;
+    border-radius: 2px;
+    background-image: linear-gradient(#dedede, #f2f2f2);
+    box-shadow: -13px 0 #40310a, -26px 0 #40310a, -39px 0 #40310a, -52px 0 #40310a, -65px 0 #40310a, -78px 0 #40310a, -91px 0 #40310a, -104px 0 #40310a, -117px 0 #40310a, -130px 0 #40310a, -143px 0 #40310a, -156px 0 #40310a;
+}
+
+#range.active {
+    display: block;
+}
+
+.twinkling {
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    width:100%;
+    height:100%;
+    display:block;
+    z-index:1;
+    -moz-animation:move-twink-back 200s linear infinite;
+    -ms-animation:move-twink-back 200s linear infinite;
+    -o-animation:move-twink-back 200s linear infinite;
+    -webkit-animation:move-twink-back 200s linear infinite;
+    animation:move-twink-back 200s linear infinite;
+    background:transparent url(../image/twinkling.png) repeat top center;
+}
+
+@keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@-webkit-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@-moz-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+@-ms-keyframes move-twink-back {
+    from {background-position:0 0;}
+    to {background-position:-10000px 5000px;}
+}
+
+h1 {
+    font-size: 32px;
 }
 
 section {
     position: relative;
-    height: 600px;
-    width: 600px;
+    margin-top: -100px;
+    height: 510px;
+    width: 510px;
+    z-index: 9999;
+}
+
+.info {
+    display: inline-flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 28px;
+}
+
+#flag {
+    position: relative;
+    margin-left: 25px;
+    padding-right: 50px;
+}
+
+#flag:after {
+    position: absolute;
+    top: -6px;
+    right: 0;
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: url(../image/satellite.svg) no-repeat;
+    background-size: 100%;
+}
+
+#timer {
+    position: relative;
+    padding-right: 50px;
+}
+
+#timer:after {
+    position: absolute;
+    top: -6px;
+    right: 0;
+    content: "";
+    width: 40px;
+    height: 40px;
+    background: url(../image/ufo.svg) no-repeat;
+    background-size: 100%;
 }
 
 #game {
     position: relative;
-    margin: 40px auto;
+    margin: 20px auto;
     height: 510px;
     width: 510px;
     border: 4px solid #757575;
     border-radius: 4px;
+    background: #ddd;
     box-shadow: 0 0 10px 2px #757575;
+}
+
+#game #over {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 32px;
+    text-align: center;
+    color: #fff;
+    background: rgba(0,0,0,.85);
+    z-index: 9999;
+}
+
+#game #over span {
+    font-size: 16px;
 }
 
 #game div {
@@ -42,7 +246,6 @@ section {
     height: 30px;
     float: left;
     border: 1px solid #fff;
-    border-radius: 3px;
     text-align: center;
 	line-height: 30px;
     cursor: pointer;
@@ -69,15 +272,23 @@ section {
     transition: box-shadow .1s;
 }
 
-#game .bomb {
+#game .flag {
+    box-shadow: none;
+    opacity: .9;
+	background: #CDDC39 url(../image/flag.svg) no-repeat center center;
+    background-size: 90%;
+    transition: box-shadow .3s;
 }
 
-#game .flag {
-	background: #FF3D00;
+#game .flag:hover {
+    box-shadow: none;
+    opacity: 1;
 }
 
 #game .bomb.active {
-	background: #F44336;
+	background: #F44336 url(../image/bomb1.svg) no-repeat center;
+    background-size: 90%;
+    transition: box-shadow .3s;
 }
 
 #game div[numb].active {
@@ -151,4 +362,58 @@ section {
 #game div[numb="8"].active:after {
 	content: "8";
 	color: #fff;
+}
+
+.footer {
+    margin-bottom: 20px;
+    color: #ccc;
+    font-weight: 200;
+    text-align: center; 
+}
+
+.footer a {
+    color: #ccc;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.footer a:hover {
+    color: #fff;
+    text-decoration: underline;
+    transition: all .3s;
+}
+
+@media all and (max-width : 1000px) {
+    #earth,
+    .sun {
+        width: 100px;
+        height: 100px;
+    }
+    .earth {
+        left: 5%;
+    }
+    .asteroid {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media all and (max-width : 840px) {
+    body {
+        overflow: auto;
+    }
+    section {
+        margin-top: 0;
+    }
+    #earth,
+    .sun,
+    .asteroid {
+        display: none;
+    }
+}
+
+@media all and (min-height: 650px) {
+    section {
+        margin-top: -100px;
+    }
 }
